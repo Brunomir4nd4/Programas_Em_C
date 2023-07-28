@@ -1,0 +1,43 @@
+/******************************************************************************
+
+Retorna a maior idade, a menor, a quantidade de maiores de idade e a média
+
+*******************************************************************************/
+#include <stdio.h>
+
+int main()
+{
+    int idade, maior=0, menor=0, media=0, contMaior=0, contIdade=0;
+    printf("Insira a idade (0 para terminar): ");
+    scanf("%i", &idade);
+    
+    menor = idade;
+    
+    while(idade != 0){
+        
+        if(idade > maior){
+            maior = idade;
+        }
+        else if(idade < menor){
+            menor = idade;
+        }
+        
+        if(idade >= 18){
+            contMaior++;
+        }
+        
+        media += idade;
+        contIdade++;
+        
+        printf("Insira a idade: ");
+        scanf("%i", &idade);
+    }
+    
+    printf("A maior idade é: %i\n", maior);
+    printf("A menor idade é: %i\n", menor);
+    printf("A quantidade de pessoas maior de idade é: %i\n", contMaior);
+    printf("A média das idades é: %i\n", media/contIdade);
+    
+    return 0;
+}
+

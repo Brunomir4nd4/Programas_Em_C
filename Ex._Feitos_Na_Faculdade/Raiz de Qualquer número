@@ -1,0 +1,54 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include <math.h>
+#define PRECISAO 10E-10 // Notação cientifica
+
+double sqrtIter(double, double, double);
+
+int main()
+{
+    double n, sqrtN;
+    
+    while (1){
+        printf("Valor de n (n = 0 para terminar): ");
+        scanf("%lf", &n);
+        if (n == 0){
+            break;
+        }
+        
+        sqrtN = sqrtIter(n, 0, n);
+        printf("Raiz mais aproximada de %.0lf = %.2lf\n", n, sqrtN);
+    }
+    
+}
+
+double sqrtIter(double n, double limInf, double limSup){
+    double termoMedio;
+    
+    while(1)
+    {
+        
+        termoMedio = (limInf + limSup) / 2;
+        
+        /*
+            Fabs é a função que demonstra  o valor absoluto da varialvel float, funciona como modulo
+        */
+        
+        if (fabs(termoMedio * termoMedio - n) < PRECISAO)
+        {
+            break;    
+        }
+        else if (termoMedio * termoMedio < n)
+        {
+            limInf = termoMedio;
+        }
+        else if (termoMedio * termoMedio > n)
+        {
+            limSup = termoMedio;
+        }
+        
+    }
+    
+    return termoMedio;
+}
+

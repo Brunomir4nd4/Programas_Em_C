@@ -1,0 +1,38 @@
+
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+int compara_string(const void *a, const void *b);
+
+
+int main()
+{
+    char nomes[][20] = {"Bruno", "Maria", "joao", "Lucas", "Miranda", "Sthephanny"};
+    int tamVet = sizeof(nomes)/sizeof(nomes[0]);
+    
+    // for(int l=0; l < tamVet; l++){
+    //     for(int c=0; nomes[l][c] != '\0'; c++){
+    //         printf("%c", nomes[l][c]);
+    //     }
+    //     printf("\n");
+    // }
+    
+    for (int i = 0; i < tamVet; i++){
+        printf("%s ", nomes[i]);
+    }
+    
+    printf("\n");
+    
+    qsort(nomes[0], tamVet, sizeof(nomes[0]), compara_string);
+    
+    for (int i = 0; i < tamVet; i++){
+        printf("%s ", nomes[i]);
+    }
+
+    return 0;
+}
+int compara_string(const void *a, const void *b)
+{
+    return (strcmp ((char *)a, (char *)b));
+}
