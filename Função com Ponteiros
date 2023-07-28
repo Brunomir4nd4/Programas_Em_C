@@ -1,0 +1,26 @@
+
+#include <stdio.h>
+
+void maxAndMin(int vet[], int tam, int *min, int *max);
+
+int main(){
+    
+    int v[] = {10, 80, 5, -50, 45, -15, 1000, 200, 10};
+    int min, max;
+    
+    maxAndMin(v, 9, &min, &max);
+    printf("O menor e: %d \nO maior e: %d \n",min, max);
+}
+
+// Desse modo retorna mais de um valor
+void maxAndMin(int vet[], int tam, int *num_min, int *num_max){
+    int i;
+    *num_max = vet[0];
+    *num_min = vet[0];
+    for(i = 0; i < tam; i++){
+        if(vet[i] < *num_min)
+            *num_min = vet[i];
+        if(vet[i] > *num_max)
+            *num_max = vet[i];
+    }
+}
