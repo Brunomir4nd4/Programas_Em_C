@@ -1,0 +1,45 @@
+
+#include <stdio.h>
+
+int main()
+
+{
+    // O ponteiro é um metodo que 'aponta' para um determinado valor na memória
+    
+    //  o caracter '*' determina a variavel como sendo um ponteiro
+    // '&' é um apontador de endereço, que tbm é utilizado pelo scanf
+    
+        int *mem_a; 
+        float *men_b;
+    
+    // Apontando para um valor da memória, neste caso o valor de a
+    
+        int a = 90;
+        mem_a = &a;
+    
+    // '%X' Apresenta o valor de momória do ponteiro, Hexadecimal
+        
+        printf("End. de men_a: %p\n", mem_a);
+        printf("Conteudo de mem_a: %X\n", &mem_a);
+        printf("Valor que mem_a mostra: %d\n\n", *mem_a);
+        
+        printf("Conteudo de a: %d\n", a);
+        printf("End. de a: %X", &a);
+    
+    // Como '*mem_a' etsá apontando para 'a', desse modo as duas estão intricicamente interligadas
+    // Sendo assim, a alteração em '*mem_a' afeta 'a' e vise versa
+        *mem_a = 100;
+    
+    
+    printf("%d", a);
+    
+    int b,a;
+    int *c;
+    
+    b=10;
+    c=&a;
+    *c = 11;
+    a = b * (*c);
+    printf("\n%d\n", a);
+    return 0;
+}
